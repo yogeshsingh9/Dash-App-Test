@@ -29,7 +29,7 @@ colors = {
     'text': '#7FDBFF'
 }
 fig = px.line()
-#print(fig)
+
 app.layout = html.Div(children=[
     html.H1(
         children='Single Server Queue',
@@ -114,10 +114,12 @@ def update_graph(isHistogram, st_val, it_val):
     return fig, getOptions(SToptions, st_val), getOptions(IToptions, it_val), getTableData(S, T, D)
 
 def getOptions(optionsList, val):
+    """Retrieve a list of options that can be displayed in a dropdown component."""
     options=[{'label': str(option), 'value': option, 'disabled': val == option} for option in optionsList]
     return options
 
 def getTableData(S, T, D):
+    """Expected value and standard deviation statistics of service, delay and interarrival times."""
     return [{'type': 'Service Time', 'mean': round(np.mean(S), 2), 'std': round(np.std(S), 2)},
             {'type': 'Interarrival Time', 'mean': round(np.mean(T), 2), 'std': round(np.std(T), 2)},
             {'type': 'Delay', 'mean': round(np.mean(D), 2), 'std': round(np.std(D), 2)}]

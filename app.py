@@ -107,7 +107,7 @@ app.layout = html.Div(children=[
 def update_graph(isHistogram, st_val, it_val):
     S, T, D = ssq.simulateSSQ(lam=st_val, b=it_val, size=queue_size)
     if isHistogram:
-        fig = px.histogram(x=[i for i in range(queue_size)], y=D, title='Delay of a Single Server Queue', labels={'x': "N", 'y': "D<sub>n</sub>"})
+        fig = px.histogram(x=[i for i in range(queue_size)], y=D, nbins=100, title='Delay of a Single Server Queue', labels={'x': "N", 'y': "D<sub>n</sub>"})
     else:
         fig = px.line(x=[i for i in range(queue_size)], y=D, title='Delay of a Single Server Queue', labels={'x': "N", 'y': "D<sub>n</sub>"})
     fig.update_layout(xaxis_showgrid=False, yaxis={'gridcolor': '#dddddd'}, plot_bgcolor='white')

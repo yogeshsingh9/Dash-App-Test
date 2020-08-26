@@ -63,7 +63,8 @@ app.layout = html.Div(children=[
                                             value=5.0
                                         ),
                                     ]
-                                )
+                                ),
+                                style={'margin': '5px'}
                         ),
                         html.Div(dash_table.DataTable(
                                 id='data-table',
@@ -74,7 +75,7 @@ app.layout = html.Div(children=[
                                 ),
                                 data=[]
                             ),
-                            style={'margin': '15px'}
+                            style={'margin': '20px'}
                         )], 
                         width = 4, 
                         align = 'center'
